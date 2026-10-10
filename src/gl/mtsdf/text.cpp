@@ -76,9 +76,7 @@ inline void gen_and_upload_vertices(MTSDF::Text& self)
 }
 
 MTSDF::Text::Text(std::shared_ptr<Font> f, const std::string& str) : font(std::move(f)), text(str)
-{
-    glGenBuffers(1, &this->vbo);
-}
+{ glGenBuffers(1, &this->vbo); }
 
 MTSDF::Text::~Text()
 {
@@ -87,9 +85,7 @@ MTSDF::Text::~Text()
 }
 
 SDL_FRect MTSDF::Text::get_bounding_box(void)
-{
-    return SDL_FRect{.x = this->box.x, .y = this->box.y, .w = this->box.w - this->box.x, .h = this->box.h - this->box.y};
-}
+{ return SDL_FRect{.x = this->box.x, .y = this->box.y, .w = this->box.w - this->box.x, .h = this->box.h - this->box.y}; }
 
 void MTSDF::Text::draw(std::unique_ptr<Shader>& shader)
 {

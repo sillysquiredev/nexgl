@@ -50,9 +50,7 @@ void RenderTexture::use(void)
 }
 
 void RenderTexture::unuse(void)
-{
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
+{ glBindFramebuffer(GL_FRAMEBUFFER, 0); }
 
 void RenderTexture::activate(GLenum slot)
 {
@@ -61,6 +59,4 @@ void RenderTexture::activate(GLenum slot)
 }
 
 void RenderTexture::bind(void)
-{
-    glBindTexture(GL_TEXTURE_2D, this->id);
-}
+{ glBindTexture(GL_TEXTURE_2D, this->id); }

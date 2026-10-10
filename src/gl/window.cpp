@@ -22,9 +22,7 @@ static bool init_sdl_video()
 }
 
 static void free_sdl_video()
-{
-    SDL_QuitSubSystem(SDL_INIT_VIDEO);
-}
+{ SDL_QuitSubSystem(SDL_INIT_VIDEO); }
 
 Window::Window(WindowConfig cfg)
 {
@@ -81,14 +79,10 @@ Window::Window(WindowConfig cfg)
 }
 
 void Window::use()
-{
-    SDL_GL_MakeCurrent(this->sdl, this->gl);
-}
+{ SDL_GL_MakeCurrent(this->sdl, this->gl); }
 
 void Window::vsync(bool enable)
-{
-    SDL_GL_SetSwapInterval(enable ? 1 : 0);
-}
+{ SDL_GL_SetSwapInterval(enable ? 1 : 0); }
 
 void Window::set_fullscreen(bool status)
 {
@@ -103,9 +97,7 @@ void Window::set_fullscreen(bool status)
 }
 
 void Window::swap()
-{
-    SDL_GL_SwapWindow(this->sdl);
-}
+{ SDL_GL_SwapWindow(this->sdl); }
 
 Window::~Window()
 {

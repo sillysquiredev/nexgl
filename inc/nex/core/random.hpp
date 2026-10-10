@@ -11,6 +11,7 @@ namespace NEX::Core
     struct Random
     {
       public:
+        // END NOT INCLUDED integer range.
         template <std::integral Int> static Int range(Int min, Int max)
         {
             thread_local std::mt19937_64 rng{std::random_device{}()};
@@ -18,6 +19,7 @@ namespace NEX::Core
             return dist(rng);
         }
 
+        // END NOT INCLUDED floating point range.
         template <std::floating_point FP> static FP range(FP min, FP max)
         {
             thread_local std::mt19937_64 rng{std::random_device{}()};
@@ -26,9 +28,7 @@ namespace NEX::Core
         }
 
         template <class Container> static const auto& choice(const Container& c)
-        {
-            return c[range<std::size_t>(0, c.size() - 1)];
-        }
+        { return c[range<std::size_t>(0, c.size() - 1)]; }
 
         template <class Container> static void shuffle(Container& c)
         {

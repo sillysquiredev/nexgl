@@ -50,9 +50,7 @@ bool AssetManager::process_enqueued()
 }
 
 size_t AssetManager::enqueued_count()
-{
-    return get_queue().size();
-}
+{ return get_queue().size(); }
 
 #ifdef NEX_ASSET_LOADER_TOML
 static GLint parse_filter(const std::string& v)

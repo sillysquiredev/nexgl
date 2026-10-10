@@ -3,14 +3,10 @@
 using namespace NEX::Core;
 
 SDL_FPoint InputManager::MouseData::get_coords(void)
-{
-    return SDL_FPoint{this->x, this->y};
-}
+{ return SDL_FPoint{this->x, this->y}; }
 
 SDL_FPoint InputManager::MouseData::get_coords_normalized(void)
-{
-    return SDL_FPoint{(this->x - 0.5f) * 2, -(this->y - 0.5f) * 2};
-}
+{ return SDL_FPoint{(this->x - 0.5f) * 2, -(this->y - 0.5f) * 2}; }
 
 void InputManager::set_letterbox(SDL_Rect letterbox)
 {
@@ -44,9 +40,7 @@ void InputManager::handle_event(SDL_Event& event)
 }
 
 InputManager::MouseData InputManager::get_mouse_data()
-{
-    return InputManager::self().m_data;
-}
+{ return InputManager::self().m_data; }
 
 bool InputManager::MouseData::is_in_rect(SDL_FRect rect)
 {

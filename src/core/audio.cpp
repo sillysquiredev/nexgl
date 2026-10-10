@@ -26,34 +26,22 @@ Audio::~Audio()
 }
 
 void Audio::play_audio(void)
-{
-    MIX_PlayAudio(AudioManager::get_mixer(), this->audio);
-}
+{ MIX_PlayAudio(AudioManager::get_mixer(), this->audio); }
 
 void Audio::play_track(SDL_PropertiesID options)
-{
-    MIX_PlayTrack(this->track, options);
-}
+{ MIX_PlayTrack(this->track, options); }
 
 void Audio::set_gain_track(double ammount)
-{
-    MIX_SetTrackGain(this->track, ammount);
-}
+{ MIX_SetTrackGain(this->track, ammount); }
 
 bool Audio::is_playing_track(void)
-{
-    return MIX_TrackPlaying(this->track);
-}
+{ return MIX_TrackPlaying(this->track); }
 
 void Audio::stop_track(Sint64 fade_out_frames)
-{
-    MIX_StopTrack(this->track, fade_out_frames);
-}
+{ MIX_StopTrack(this->track, fade_out_frames); }
 
 MIX_Mixer* AudioManager::get_mixer()
-{
-    return get_instance().mixer;
-}
+{ return get_instance().mixer; }
 
 AudioManager::AudioManagerInner& AudioManager::get_instance()
 {
@@ -62,9 +50,7 @@ AudioManager::AudioManagerInner& AudioManager::get_instance()
 }
 
 void AudioManager::stop_all_tracks(int64_t fade_out_ms)
-{
-    MIX_StopAllTracks(AudioManager::get_mixer(), fade_out_ms);
-}
+{ MIX_StopAllTracks(AudioManager::get_mixer(), fade_out_ms); }
 
 AudioManager::AudioManagerInner::AudioManagerInner()
 {

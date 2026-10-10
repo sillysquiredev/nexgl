@@ -52,9 +52,7 @@ void Texture::activate(GLenum slot)
 }
 
 void Texture::bind()
-{
-    glBindTexture(GL_TEXTURE_2D, this->id);
-}
+{ glBindTexture(GL_TEXTURE_2D, this->id); }
 
 Texture::~Texture()
 {

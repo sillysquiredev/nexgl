@@ -95,9 +95,7 @@ inline void init_from_shaders(Shader& self, const VertexShader& vert, const Frag
 }
 
 Shader::Shader(const VertexShader& vert, const FragmentShader& frag)
-{
-    init_from_shaders(*this, vert, frag);
-}
+{ init_from_shaders(*this, vert, frag); }
 
 Shader::Shader(std::string vertex_path, std::string fragment_path)
 {
@@ -122,24 +120,16 @@ Shader::Shader(std::string vertex_path, std::string fragment_path)
 }
 
 void Shader::use()
-{
-    glUseProgram(this->id);
-}
+{ glUseProgram(this->id); }
 
 void Shader::set_uniform(std::string const name, int value)
-{
-    glUniform1i(glGetUniformLocation(this->id, name.c_str()), value);
-}
+{ glUniform1i(glGetUniformLocation(this->id, name.c_str()), value); }
 
 void Shader::set_uniform(std::string const name, float value)
-{
-    glUniform1f(glGetUniformLocation(this->id, name.c_str()), value);
-}
+{ glUniform1f(glGetUniformLocation(this->id, name.c_str()), value); }
 
 void Shader::set_uniform(std::string const name, double value)
-{
-    set_uniform(name, (float)value);
-}
+{ set_uniform(name, (float)value); }
 
 Shader::~Shader()
 {

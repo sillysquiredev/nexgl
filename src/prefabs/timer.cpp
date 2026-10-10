@@ -7,9 +7,7 @@ using namespace NEX::Prefabs;
 Timer::Timer(double rate) : rate(rate) {}
 
 float Timer::progress(void)
-{
-    return this->value / this->rate;
-}
+{ return this->value / this->rate; }
 
 void Timer::update(double dt)
 {

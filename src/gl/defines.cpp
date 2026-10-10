@@ -37,7 +37,5 @@ void NEX::GL::set_view_letterbox(SDL_Point size, SDL_Point original)
 #ifdef __psp2__
 #include <string.h>
 char* SDL_strtok_r(char* str, const char* delim, char** saveptr)
-{
-    return strtok_r(str, delim, saveptr);
-}
+{ return strtok_r(str, delim, saveptr); }
 #endif
