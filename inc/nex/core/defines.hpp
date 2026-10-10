@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
 // Console looks like ass in emscripten with this.
 constexpr auto TTY_RESET = "";
 constexpr auto TTY_RED = "";
