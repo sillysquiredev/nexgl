@@ -1,4 +1,8 @@
 if(NEX_BUILD_PLATFORM MATCHES "VITA")
+	target_link_options(
+		${PROJECT_NAME}
+		PRIVATE "-Wl,--defsym=__sce_headroom=0x10000"
+	)
 	vita_create_self(${NEX_APP_EXECUTABLE}.self ${NEX_APP_EXECUTABLE} UNSAFE NOASLR)
 	vita_create_vpk(
 	    ${NEX_APP_EXECUTABLE}.vpk

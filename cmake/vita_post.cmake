@@ -6,11 +6,6 @@ target_compile_definitions(
         __psp2__   
 )
 
-target_link_options(
-    ${PROJECT_NAME}
-    PRIVATE "-Wl,--defsym=__sce_headroom=0x10000"
-)
-
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
