@@ -9,7 +9,7 @@ using namespace NEX::GL;
 
 static size_t window_count = 0;
 
-static bool init_sdl_video()
+static bool init_sdl_video(void)
 {
     bool status = SDL_Init(SDL_INIT_VIDEO);
 
@@ -21,7 +21,7 @@ static bool init_sdl_video()
     return status;
 }
 
-static void free_sdl_video()
+static void free_sdl_video(void)
 { SDL_QuitSubSystem(SDL_INIT_VIDEO); }
 
 Window::Window(WindowConfig cfg)
@@ -78,7 +78,7 @@ Window::Window(WindowConfig cfg)
     SDL_Log("GLSL     : %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
 }
 
-void Window::use()
+void Window::use(void)
 { SDL_GL_MakeCurrent(this->sdl, this->gl); }
 
 void Window::vsync(bool enable)

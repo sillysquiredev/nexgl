@@ -22,8 +22,8 @@ namespace NEX::GL
 #endif
         int w, h;
 
-        void use();
-        void swap();
+        void use(void);
+        void swap(void);
         void vsync(bool);
         void set_fullscreen(bool);
         Window(WindowConfig);

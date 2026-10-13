@@ -20,7 +20,7 @@ elseif(NEX_BUILD_PLATFORM MATCHES "WEB")
 	set_target_properties(
 	    ${NEX_APP_EXECUTABLE}
 	    PROPERTIES LINK_FLAGS
-	        "-sUSE_SDL=3 -sALLOW_MEMORY_GROWTH=1 --preload-file ${CMAKE_SOURCE_DIR}/assets@/assets"
+	        "-sUSE_SDL=3 -sINITIAL_MEMORY=512MB --preload-file ${CMAKE_SOURCE_DIR}/assets@/assets"
 	)
 elseif(NEX_BUILD_PLATFORM MATCHES "WINDOWS")
 	install(FILES $<TARGET_RUNTIME_DLLS:${NEX_APP_EXECUTABLE}> TYPE BIN)
