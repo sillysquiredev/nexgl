@@ -37,8 +37,8 @@ namespace NEX::GL
         void set_uniform(std::string const, int);
         void set_uniform(std::string const, float);
         void set_uniform(std::string const, double);
-        void set_uniform(std::string const, int const *, int);
-        void set_uniform(std::string const, std::vector<int> const &);
+        void set_uniform(std::string const, int const*, int);
+        void set_uniform(std::string const, std::vector<int> const&);
         ~Shader();
     };
 }; // namespace NEX::GL

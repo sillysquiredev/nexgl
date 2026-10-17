@@ -77,7 +77,6 @@ void SpriteAtlas::push_sprite(size_t index, SDL_FRect target_rect)
 
 void SpriteAtlas::draw(GL::Shader& shader)
 {
-    //clang-format off
     if(!this->vbo)
         glGenBuffers(1, &this->vbo);
 
@@ -88,7 +87,6 @@ void SpriteAtlas::draw(GL::Shader& shader)
         this->data.data(),
         GL_DYNAMIC_DRAW
     );
-    //clang-format on
 
     glUniform4f(glGetUniformLocation(shader.id, "u_color"), this->color.r, this->color.g, this->color.b, this->color.a);
 

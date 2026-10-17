@@ -21,6 +21,6 @@ namespace NEX::Prefabs
 
         // Call this after updating data to send to the GPU as well.
         void refresh(void);
-        void refresh_from_rect(SDL_FRect);
+        void refresh_from_rect(SDL_FRect&);
     };
 }; // namespace NEX::Prefabs

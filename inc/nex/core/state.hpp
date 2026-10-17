@@ -29,7 +29,14 @@ namespace NEX::Core
 
         std::vector<std::shared_ptr<IState>> states;
 
-        std::any userdata;
+        template <typename T> void set_userdata(T&& data)
+        { userdata = std::make_shared<std::any>(std::forward<T>(data)); }
+
+        template <typename T> T& get_userdata(void)
+        { return std::any_cast<T&>(*userdata); }
+
+      private:
+        std::shared_ptr<std::any> userdata;
     };
 }; // namespace NEX::Core
 

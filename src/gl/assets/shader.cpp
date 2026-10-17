@@ -128,11 +128,11 @@ void Shader::set_uniform(std::string const name, int value)
 void Shader::set_uniform(std::string const name, float value)
 { glUniform1f(glGetUniformLocation(this->id, name.c_str()), value); }
 
-void Shader::set_uniform(std::string const name, int const *values, int count)
+void Shader::set_uniform(std::string const name, int const* values, int count)
 { glUniform1iv(glGetUniformLocation(this->id, name.c_str()), count, values); }
 
-void Shader::set_uniform(std::string const name, std::vector<int> const &values)
-{ glUniform1iv(glGetUniformLocation(this->id, name.c_str()), (int)values.size(), values.data()); }   
+void Shader::set_uniform(std::string const name, std::vector<int> const& values)
+{ glUniform1iv(glGetUniformLocation(this->id, name.c_str()), (int)values.size(), values.data()); }
 
 void Shader::set_uniform(std::string const name, double value)
 { set_uniform(name, (float)value); }

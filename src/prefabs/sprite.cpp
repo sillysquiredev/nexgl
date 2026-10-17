@@ -30,7 +30,7 @@ void Sprite::draw(GL::Shader& shader)
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
-void Sprite::refresh_from_rect(SDL_FRect rect)
+void Sprite::refresh_from_rect(SDL_FRect& rect)
 {
     this->data[0].x = rect.x;
     this->data[0].y = rect.y;

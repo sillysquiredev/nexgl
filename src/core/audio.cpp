@@ -8,9 +8,25 @@ Audio::Audio(const std::string& path, bool predecode)
 {
     MIX_Mixer* mixer = AudioManager::get_mixer();
     this->audio = MIX_LoadAudio(mixer, path.c_str(), predecode);
+    if (!this->audio)
+    {
+        SDL_Log("%s[EROR] Could not load Audio at path %s: (%s).%s\n", TTY_RED, path.c_str(), SDL_GetError(), TTY_RESET);
+        return;
+    }
+
     this->track = MIX_CreateTrack(mixer);
+    if (!this->track)
+    {
+        SDL_Log("%s[EROR] Could not create track for Audio at path %s: (%s).%s\n", TTY_RED, path.c_str(), SDL_GetError(), TTY_RESET);
+        return;
+    }
+
     MIX_SetTrackAudio(this->track, this->audio);
     this->path = path;
+
+#ifdef __DEBUG__
+    SDL_Log("[TRCE] Loaded Audtio at path %s.\n", path.c_str());
+#endif
 }
 
 Audio::~Audio()
