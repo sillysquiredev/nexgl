@@ -23,7 +23,6 @@ RenderTexture::RenderTexture(int w, int h)
     glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this->id, 0);
 
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
     {
@@ -33,6 +32,8 @@ RenderTexture::RenderTexture(int w, int h)
         glDeleteTextures(1, &this->id), this->id = 0;
         return;
     }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 RenderTexture::~RenderTexture()

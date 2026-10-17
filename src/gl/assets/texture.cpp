@@ -36,6 +36,13 @@ Texture::Texture(TextureConfig cfg)
         format = GL_RGBA;
 
     glTexImage2D(GL_TEXTURE_2D, 0, format, this->w, this->h, 0, format, GL_UNSIGNED_BYTE, this->data);
+    GLenum err = glGetError();
+    if (err != GL_NO_ERROR)
+        SDL_Log("%s[EROR] OpenGL error when loading texture at path %s (%dx%d): 0x%04x%s\n", TTY_RED, cfg.path.c_str(), this->w, this->h, err, TTY_RESET);
+#ifdef __DEBUG__
+    else
+        SDL_Log("[TRCE] Loaded texture at path %s (%dx%d) to VRAM.\n", cfg.path.c_str(), this->w, this->h);
+#endif
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, cfg.min_filter);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, cfg.mag_filter);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, cfg.wrap_s);
